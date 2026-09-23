@@ -25,6 +25,7 @@
   "packageManager": "pnpm@11.24.0",
   "type": "module",
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "ws": "^8.21.3"
   }
 }
