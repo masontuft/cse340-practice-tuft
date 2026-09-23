@@ -1,0 +1,129 @@
+/* html, body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+body {
+    text-align: center;
+    nav {
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+
+            &:hover {
+                color: #0066cc;
+            }
+        }
+    }
+    img {
+        max-width: 25%;
+        height: auto;
+    }
+    .portrait-frame {
+        display: block;
+        width: min(100%, 600px);
+        height: auto;
+        
+        padding: 12px;
+        background-color: white;
+        border: 8px solid #8b5e3c;
+        border-radius: 12px;
+        box-shadow:
+            0 0 0 4px #d4af37,
+            0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+} */
+ html,
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+body {
+    color: #243447;
+    text-align: center;
+
+    h1 {
+        color: #173f5f;
+        margin-bottom: 20px;
+    }
+
+    nav {
+        margin-bottom: 30px;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+        }
+
+        a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover {
+                color: #0066cc;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        max-width: 25%;
+        height: auto;
+        margin: 0 auto 25px;
+    }
+
+    .portrait-frame {
+        display: block;
+        width: min(100%, 600px);
+        height: auto;
+        
+        padding: 12px;
+        background-color: white;
+        border: 8px solid #8b5e3c;
+        border-radius: 12px;
+        box-shadow:
+            0 0 0 4px #d4af37,
+            0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    p {
+        max-width: 700px;
+        margin: 0 auto 25px;
+        line-height: 1.6;
+    }
+
+    h3 {
+        color: #173f5f;
+    }
+
+    > ul {
+        display: inline-block;
+        text-align: left;
+        line-height: 1.8;
+        margin: 0 auto;
+    }
+}
