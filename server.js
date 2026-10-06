@@ -54,10 +54,6 @@ app.get('/about', (req, res) => {
     res.render('about', { title });
 });
 
-app.get('/products', (req, res) => {
-    const title = 'Our Products';
-    res.render('products', { title });
-});
 
 // Test route for 500 errors
 app.get('/test-error', (req, res, next) => {
