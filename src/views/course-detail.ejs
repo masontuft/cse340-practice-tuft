@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1><%= course.id %>: <%= course.title %></h1>
+
+    <p><strong>Department:</strong> <%= course.department %></p>
+    <p><strong>Credits:</strong> <%= course.credits %></p>
+    <p><%= course.description %></p>
+
+    <h2>Sections</h2>
+
+    <form method="GET" action="/catalog/<%= course.id %>">
+        <label for="sort">Sort by:</label>
+
+        <select id="sort" name="sort">
+            <option value="time" <%= currentSort === 'time' ? 'selected' : '' %>>
+                Original order
+            </option>
+            <option value="professor" <%= currentSort === 'professor' ? 'selected' : '' %>>
+                Professor
+            </option>
+            <option value="room" <%= currentSort === 'room' ? 'selected' : '' %>>
+                Room
+            </option>
+        </select>
+
+        <button type="submit">Sort</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Room</th>
+                <th>Professor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% course.sections.forEach(section => { %>
+                <tr>
+                    <td><%= section.time %></td>
+                    <td><%= section.room %></td>
+                    <td><%= section.professor %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/catalog">Back to catalog</a>
+    </p>
+</main>
+
+<%- include('partials/footer') %>

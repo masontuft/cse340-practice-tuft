@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1><%= title %></h1>
+
+    <p>This page demonstrates route-specific middleware.</p>
+
+    <p>
+        The middleware adds these response headers:
+    </p>
+
+    <ul>
+        <li><code>X-Demo-Page</code></li>
+        <li><code>X-Middleware-Demo</code></li>
+    </ul>
+
+    <p>
+        <a href="/">Back to home</a>
+    </p>
+</main>
+
+<%- include('partials/footer') %>
