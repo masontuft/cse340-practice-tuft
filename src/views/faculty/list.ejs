@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<main>
+    <h1><%- title %></h1>
+
+    <ul>
+        <% Object.entries(faculty).forEach(([slug, member]) => { %>
+            <li>
+                <h2>
+                    <a href="/faculty/<%= member.id %>">
+                        <%= member.name %> - <%= member.title %>
+                    </a>
+                </h2>
+                <p><strong>Department:</strong> <%= member.department %></p>
+                <p><strong>Office:</strong> <%= member.office %></p>
+                <p><strong>Phone:</strong> <%= member.phone %></p>
+                <p><strong>Email:</strong> <%= member.email %></p>
+            </li>
+        <% }) %>
+    </ul>
+</main>
+
+<%- include('../partials/footer') %>
