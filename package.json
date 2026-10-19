@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "ejs": "^6.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.23.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
