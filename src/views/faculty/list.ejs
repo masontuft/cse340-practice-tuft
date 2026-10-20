@@ -2,19 +2,22 @@
 
 <main>
     <h1><%- title %></h1>
-
+    <!-- <script>
+        console.log('Current sort option:', '<%= currentSort %>'); // Debugging log
+        console.log('Faculty list:', <%- JSON.stringify(faculty || []) %>); // Debugging log
+    </script> -->
     <ul>
-        <% Object.entries(faculty).forEach(([slug, member]) => { %>
+        <% Object.entries(faculty || []).forEach(([key, faculty]) => { %>
             <li>
                 <h2>
-                    <a href="/faculty/<%= member.id %>">
-                        <%= member.name %> - <%= member.title %>
+                    <a href="/faculty/<%= faculty.slug %>">
+                        <%= faculty.firstName %> <%= faculty.lastName %> - <%= faculty.title %>
                     </a>
                 </h2>
-                <p><strong>Department:</strong> <%= member.department %></p>
-                <p><strong>Office:</strong> <%= member.office %></p>
-                <p><strong>Phone:</strong> <%= member.phone %></p>
-                <p><strong>Email:</strong> <%= member.email %></p>
+                <p><strong>Department:</strong> <%= faculty.department %></p>
+                <p><strong>Office:</strong> <%= faculty.office %></p>
+                <p><strong>Phone:</strong> <%= faculty.phone %></p>
+                <p><strong>Email:</strong> <%= faculty.email %></p>
             </li>
         <% }) %>
     </ul>

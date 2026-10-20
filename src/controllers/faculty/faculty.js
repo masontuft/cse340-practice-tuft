@@ -1,37 +1,39 @@
 // Imports
-import { getFacultyById } from "../../models/faculty/faculty.js";
-import { getSortedFaculty } from "../../models/faculty/faculty.js";
+import { getFacultyBySlug, getSortedFaculty } from '../../models/faculty/faculty.js';
 
-const facultyListPage = (req, res) => {
-    const sort = req.query.sort;
-    const facultyList = getSortedFaculty(sort);
+const facultyListPage = async (req, res) => {
+    const validSortOptions = ['name', 'department', 'title'];
+    const sortBy = validSortOptions.includes(req.query.sort) ? req.query.sort : 'department';
+    const facultyList = await getSortedFaculty(sortBy);
 
     res.render('faculty/list', {
-        title: 'Faculty List',
-        faculty: facultyList
+        title: 'Faculty Directory',
+        faculty: facultyList,
+        currentSort: sortBy || 'name'
     });
 };
 
-const facultyDetailPage = (req, res, next) => {
-    const facultyId = req.params.facultyId;
-    const faculty = getFacultyById(facultyId);
+const facultyDetailPage = async (req, res, next) => {
+    const facultySlug = req.params.facultySlug;
+    const faculty = await getFacultyBySlug(facultySlug);
 
     //  Null check, if faculty doesn't exist, create 404 error
     if(!faculty) {
-        const err = new Error(`Faculty ${faculty} not found`);
+        const err = new Error(`Faculty ${facultySlug} not found`);
         err.status = 404;
         return next(err); 
     }
 
     // Render faculty detail page
     res.render('faculty/detail', {
-        title: `${faculty.name} - ${faculty.title}`,
-        name: faculty.name,
-        title: faculty.title,
+        title: `${faculty.firstName} ${faculty.lastName} - ${faculty.title}`,
+        name: faculty.firstName + ' ' + faculty.lastName,
+        jobTitle: faculty.title,
         office: faculty.office,
         phone: faculty.phone,
         email: faculty.email,
-        department: faculty.department
+        department: faculty.department,
+        faculty: faculty
     })
 };
 
