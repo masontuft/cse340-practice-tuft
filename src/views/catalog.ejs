@@ -1,5 +1,15 @@
 <%- include('partials/header') %>
-
+<!-- Data Structure:
+ {
+    id: 41,
+    courseCode: 'CHEM 111',
+    name: 'General Chemistry I',
+    description: 'Fundamental principles of chemistry including atomic structure, bonding, stoichiometry, and thermochemistry.',
+    creditHours: 4,
+    department: 'Chemistry',
+    departmentCode: 'CHEM',
+    slug: 'chem-111'
+  }, -->
 <main>
     <h1><%- title %></h1>
 
@@ -7,12 +17,12 @@
         <% Object.values(courses).forEach(course => { %>
             <li>
                 <h2>
-                    <a href="/catalog/<%= course.id%>">
-                        <%= course.id %>: <%= course.title %>
+                    <a href="/catalog/<%= course.slug %>">
+                        <%= course.courseCode %>: <%= course.name %>
                     </a>
                 </h2>
                 <p><strong>Department:</strong> <%= course.department %></p>
-                <p><strong>Credits:</strong> <%= course.credits %></p>
+                <p><strong>Credits:</strong> <%= course.creditHours %></p>
                 <p><%= course.description %></p>
             </li>
         <% }) %>

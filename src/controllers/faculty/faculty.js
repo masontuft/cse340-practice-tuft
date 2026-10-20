@@ -18,7 +18,7 @@ const facultyDetailPage = async (req, res, next) => {
     const faculty = await getFacultyBySlug(facultySlug);
 
     //  Null check, if faculty doesn't exist, create 404 error
-    if(!faculty) {
+    if(!faculty || Object.keys(faculty).length === 0) {
         const err = new Error(`Faculty ${facultySlug} not found`);
         err.status = 404;
         return next(err); 

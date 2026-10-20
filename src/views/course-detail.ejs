@@ -1,15 +1,28 @@
 <%- include('partials/header') %>
-
+<!-- Data Structure
+ id: section.id,
+        time: section.time,
+        room: section.room,
+        courseCode: section.course_code,
+        courseName: section.course_name,
+        description: section.description,
+        creditHours: section.credit_hours,
+        professor: `${section.first_name} ${section.last_name}`,
+        professorSlug: section.faculty_slug,
+        professorTitle: section.faculty_title,
+        department: section.department_name,
+        departmentCode: section.department_code
+         -->
 <main>
-    <h1><%= course.id %>: <%= course.title %></h1>
+    <h1><%= course.slug %>: <%= course.name %></h1>
 
     <p><strong>Department:</strong> <%= course.department %></p>
-    <p><strong>Credits:</strong> <%= course.credits %></p>
+    <p><strong>Credits:</strong> <%= course.creditHours %></p>
     <p><%= course.description %></p>
 
     <h2>Sections</h2>
 
-    <form method="GET" action="/catalog/<%= course.id %>">
+    <form method="GET" action="/catalog/<%= course.slug %>">
         <label for="sort">Sort by:</label>
 
         <select id="sort" name="sort">
@@ -36,7 +49,7 @@
             </tr>
         </thead>
         <tbody>
-            <% course.sections.forEach(section => { %>
+            <% sections.forEach(section => { %>
                 <tr>
                     <td><%= section.time %></td>
                     <td><%= section.room %></td>
