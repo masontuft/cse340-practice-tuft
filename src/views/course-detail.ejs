@@ -14,7 +14,7 @@
         departmentCode: section.department_code
          -->
 <main>
-    <h1><%= course.slug %>: <%= course.name %></h1>
+    <h1><%= course.slug.toUpperCase() %>: <%= course.name %></h1>
 
     <p><strong>Department:</strong> <%= course.department %></p>
     <p><strong>Credits:</strong> <%= course.creditHours %></p>
