@@ -8,7 +8,7 @@ const catalogPage = async (req, res) => {
     const courses = await getAllCourses();
     
     console.log('Courses retrieved:', courses); // Debugging log
-    res.render('catalog', {
+    res.render('catalog/list', {
         title: 'Course Catalog',
         courses: courses
     });
@@ -45,7 +45,7 @@ const courseDetailPage = async (req, res, next) => {
     //     department: section.department_name,
     //     departmentCode: section.department_code
     
-    res.render('course-detail', {
+    res.render('catalog/detail', {
         title: `${course.courseCode} - ${course.name}`,
         course: course,
         sections: sections,

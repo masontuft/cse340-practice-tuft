@@ -1,0 +1,31 @@
+main {
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        border-spacing: 0;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        text-align: left;
+        white-space: nowrap;
+
+        th,
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        th {
+            background: #eaf0eb;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+    }
+}

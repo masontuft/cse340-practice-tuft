@@ -1,0 +1,17 @@
+main {
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 0 1.25rem;
+    }
+
+    .portrait-frame {
+        width: min(100%, 38rem);
+        padding: 0.45rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+    }
+}
